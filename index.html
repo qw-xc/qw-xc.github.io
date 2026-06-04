@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио | Твой Ник</title>
+    <!-- Подключаем стильный шрифт Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: linear-gradient(145deg, #ffffff 0%, #e6e6e6 100%);
+            --accent: #4caf50;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #1a1a1a;
+            /* Улучшенный шахматный фон */
+            background-image: 
+                linear-gradient(45deg, #222 25%, transparent 25%), 
+                linear-gradient(-45deg, #222 25%, transparent 25%), 
+                linear-gradient(45deg, transparent 75%, #222 75%), 
+                linear-gradient(-45deg, transparent 75%, #222 75%);
+            background-size: 40px 40px;
+            background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+            padding: 20px;
+        }
+
+        /* Главный контейнер с эффектом стекла */
+        .container {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 32px;
+            padding: 40px;
+            max-width: 850px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        /* Общий стиль для всех белых карточек */
+        .bento-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 24px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .bento-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Шапка */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            letter-spacing: -1px;
+            font-weight: 800;
+            color: #1a1a1a;
+        }
+
+        .header a {
+            font-size: 16px;
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 600;
+            background: rgba(0,0,0,0.05);
+            padding: 8px 16px;
+            border-radius: 12px;
+            transition: 0.2s;
+        }
+
+        .header a:hover {
+            background: rgba(0,0,0,1);
+            color: white;
+        }
+
+        /* Сетка */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr 2.5fr;
+            gap: 20px;
+        }
+
+        .avatar-card {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            overflow: hidden;
+            aspect-ratio: 1 / 1;
+        }
+
+        .avatar-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .about-card p {
+            font-size: 17px;
+            line-height: 1.6;
+            color: #333;
+            font-weight: 400;
+        }
+
+        /* Нижний ряд (реверс) */
+        .bottom-row {
+            display: grid;
+            grid-template-columns: 2.5fr 1fr;
+            gap: 20px;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #1a1a1a;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 10px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 15px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.4; }
+            100% { opacity: 1; }
+        }
+
+        /* Адаптивность для мобилок */
+        @media (max-width: 700px) {
+            .grid-layout, .bottom-row {
+                grid-template-columns: 1fr;
+            }
+            .bottom-row {
+                display: flex;
+                flex-direction: column-reverse;
+            }
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Шапка -->
+        <header class="bento-card header">
+            <h1>qw-xc</h1>
+            <nav>
+                <a href="#">works</a>
+            </nav>
+        </header>
+
+        <!-- Основной блок -->
+        <div class="grid-layout">
+            <div class="bento-card avatar-card">
+                <!-- Вставь сюда ссылку на свое фото -->
+                <img src="https://i.pinimg.com/originals/11/ae/1f/11ae1f0598db4630a916029272338f0d.jpg" alt="me">
+            </div>
+            <div class="bento-card about-card">
+                <p>
+                    Привет! Я молодой разработчик, увлекаюсь созданием миров в <strong>Gamedev</strong>, 
+                    экспериментирую с UI дизайном и пишу музыку.
+                </p>
+                <div>
+                    <div class="status-badge">
+                        <div class="status-dot"></div>
+                        Open for projects
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Нижний блок -->
+        <div class="bottom-row">
+            <div class="bento-card about-card">
+                <p>
+                    Использую Python, Luau и C++. Люблю лоу-рез эстетику и старые трекерные мелодии. 
+                    Всегда рад новым знакомствам и коллаборациям.
+                </p>
+            </div>
+            <div class="bento-card avatar-card">
+                <img src="https://via.placeholder.com/200/222/fff?text=Code" alt="work">
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
